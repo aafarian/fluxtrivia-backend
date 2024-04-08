@@ -134,7 +134,7 @@ app.post('/generate-questions', async (req, res) => {
       messages: [{
         "role": "user",
         "content": `
-          Generate ${numberOfQuestions} easy to very challenging trivia question related to ${category} including four multiple-choice answers (A, B, C, and D).
+          Generate ${numberOfQuestions} easy to very challenging trivia question of category ${category} or related to ${category} including four multiple-choice answers (A, B, C, and D).
           Don't allow vulgar categories and if there's a category that's too long, condense it to create a category similar to it.
           List each question with no numbers or anything, no bolding or asterisks, and format the output as follows:
           category (high level, most basic category) \n advanced category (for analytics) \n question text \n answer options in a list separated by \n explanation \n <letter of correct answer>) the correct answer \n difficulty \n.
@@ -171,7 +171,7 @@ async function generateTriviaQuestion(category) {
       messages: [{
         "role": "user",
         "content": `
-          Generate a challenging trivia question related to ${category} including four multiple-choice answers (A, B, C, and D).
+          Generate a challenging trivia question of category ${category} or related to it if there are none, including four multiple-choice answers (A, B, C, and D).
           Don't allow vulgar categories and if there's a category that's too long, condense it to create a category similar to it.
           Format the output as follows: category, question text, answer options in a list, and indicate the correct answer. Follow this structure,
           and please make sure the string doesn't start with backticks:
